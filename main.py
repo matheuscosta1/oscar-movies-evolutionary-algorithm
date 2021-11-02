@@ -264,7 +264,7 @@ def replace_invalid(pop: List[Chromosome]):
         invalid_indexes = list(map(lambda a: a[0], list(filter(lambda a: a[1] == -1, list(enumerate(evals))))))
 
 
-execution_number = 10
+execution_number = 30
 
 if __name__ == '__main__':
     times = []
@@ -346,14 +346,14 @@ if __name__ == '__main__':
         [
             "Tempo(s)",
             round(min(times), 2),
-            round(np.average(times), 3),
+            round(np.average(times), 2),
             round(max(times), 2),
             round(np.std(times), 3)],
         [
             "Rating",
-            min(best_chromossome),
-            np.average(best_chromossome),
-            max(best_chromossome),
+            round(min(best_chromossome), 2),
+            round(np.average(best_chromossome), 2),
+            round(max(best_chromossome), 2),
             round(np.std(best_chromossome), 2)
         ],
         [
