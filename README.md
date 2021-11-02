@@ -41,9 +41,9 @@ As restrições de duração máxima por dia (240 minutos) e quando o filme O Po
 
 ## Recombinação
 
-#Estrutura do Algoritmo Genético
+# Estrutura do Algoritmo Genético
 
-#Implementação do operador Elitismo
+# Implementação do operador Elitismo
 
 Para a geração dos filhos os pais mais adaptados tinham maior probabilidade em serem escolhidos.
 
