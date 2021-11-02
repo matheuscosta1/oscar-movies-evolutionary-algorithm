@@ -1,6 +1,12 @@
-# Função Objetivo
+# Descrição
 
-A função objetivo do Algoritmo Evolutivo é a soma da multiplicação dos ratings diários dos filmes assistidos  e deve ser maximizada. Ela deveria sim tratar soluções inválidas, como dias sem assistir nenhum filme, configurações em que a soma da duração dos filmes assistidos em um só dia ultrapassar 240 minutos e, particularmente, quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I, contudo essas verificações serão feitas previamente na decodificação do cromossomo.
+Este trabalho implementa um Algoritmo Genético em cima de filmes que ganharam o prêmio do Oscar. A ideia é assistir a todos os filmes na menor quantidade de dias possíveis, com algumas restrições, que são elas: não se pode assistir mais que 240 minutos por dia; e o filme Poderoso Chefão I deve ser assistido antes do Podersoso Chefão II.
+
+# Identificação
+
+- Matheus José da Costa &emsp;11711BCC008
+- Rafael Valentim Silva &emsp;&emsp;11711BCC010
+
 
 # Representação do Cromossomo
 
@@ -8,6 +14,10 @@ O Cromossomo será representado como uma configuração da ordem em que os filme
 ![img_1.png](images/img.png)
 
 Devido a representação escolhida para o cromossomo, seu tamanho será 185, considerando que a configuração máxima é dada por um único filme sendo assistido por dia, como são 93 filmes, a configuração seguiria o padrão [x, -1, x, -1, x, -1, ..., x] resultando em 93 genes representando filmes e 92 representando separadores. Essa representação também requer que o critério de avaliação seja  restringido por uma condição que, se dois índices inválidos aparecem em sequência, tal solução é inválida caso todos filmes não foram visitados, caso contrário é uma solução aceita.
+
+# Função Objetivo
+
+A função objetivo do Algoritmo Evolutivo é a soma da multiplicação dos ratings diários dos filmes assistidos  e deve ser maximizada. Ela deveria sim tratar soluções inválidas, como dias sem assistir nenhum filme, configurações em que a soma da duração dos filmes assistidos em um só dia ultrapassar 240 minutos e, particularmente, quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I, contudo essas verificações serão feitas previamente na decodificação do cromossomo.
 
 # Decodificação do Cromossomo
 
@@ -24,4 +34,22 @@ Existem cenários em que a representação esperada não é garantida, como no e
 ![img_2.png](images/img_2.png)
 
 As restrições de duração máxima por dia (240 minutos) e quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I também serão tratadas. A primeira não é tratável e a função objetivo não poderá ser aplicada, a segunda será tratada invertendo os dias em que os dois filmes aparecem, e, caso apareçam no mesmo dia, sua ordem de exibição será invertida.
+
+# Operadores de Recombinação e Mutação
+
+## Mutação
+
+## Recombinação
+
+#Estrutura do Algoritmo Genético
+
+#Implementação do operador Elitismo
+
+Para a geração dos filhos os pais mais adaptados tinham maior probabilidade em serem escolhidos.
+
+# Experimentos
+
+## Geração da população
+
+## Mutação
 
