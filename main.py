@@ -270,17 +270,16 @@ if __name__ == '__main__':
     times = []
     best_chromossome = []
     number_of_days = []
-    for i in range(execution_number):
+    for j in range(execution_number):
 
         start_time = time.time()
 
-        MAX_EPOCHS = 100  # 10000  # @param {type: "number"}
+        MAX_EPOCHS = 10000  # 10000  # @param {type: "number"}
         POP_SIZE = 100  # @param {type: "number"}
         epoch = 0
         n_bests = [[-1, -1]]
 
-        # len(movies)
-        pop = create_initial_population(10, generate_random_chromosome_with_pattern, pop_size=POP_SIZE)
+        pop = create_initial_population(len(movies), generate_random_chromosome_with_pattern, pop_size=POP_SIZE)
 
         last_better = 0
 
@@ -329,8 +328,6 @@ if __name__ == '__main__':
 
         days = sorted(days, key=lambda a: a[-1], reverse=True)
 
-
-
         iteration_time = time.time() - start_time
         times.append(iteration_time)
         best_chromossome.append(n_bests[-1][0])
@@ -340,30 +337,29 @@ if __name__ == '__main__':
                    tablefmt="fancy_grid"))
 
     data = [[
-                'Métrica',
-                'Mínimo',
-                'Média',
-                'Máximo',
-                'Desvio Padrão'
-            ],
-            [
-                "Tempo(s)",
-                round(min(times), 2),
-                round(np.average(times),3),
-                round(max(times), 2),
-                round(np.std(times), 3)],
-            [
-                "Rating",
-                min(best_chromossome),
-                np.average(best_chromossome),
-                max(best_chromossome),
-                round(np.std(best_chromossome), 2)
-            ],
-            [
-                "Dias", min(number_of_days),
-                np.average(number_of_days),
-                max(number_of_days),
-                round(np.std(number_of_days), 2)
-            ]]
+        'Métrica',
+        'Mínimo',
+        'Média',
+        'Máximo',
+        'Desvio Padrão'
+    ],
+        [
+            "Tempo(s)",
+            round(min(times), 2),
+            round(np.average(times), 3),
+            round(max(times), 2),
+            round(np.std(times), 3)],
+        [
+            "Rating",
+            min(best_chromossome),
+            np.average(best_chromossome),
+            max(best_chromossome),
+            round(np.std(best_chromossome), 2)
+        ],
+        [
+            "Dias", min(number_of_days),
+            np.average(number_of_days),
+            max(number_of_days),
+            round(np.std(number_of_days), 2)
+        ]]
     print(tabulate(data, tablefmt="fancy_grid"))
-
