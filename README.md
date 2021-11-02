@@ -22,8 +22,9 @@ A função objetivo do Algoritmo Evolutivo é a soma da multiplicação dos rati
 # Decodificação do Cromossomo
 
 Dada a representação descrita no tópico anterior, a decodificação do cromossomo é bem simples e baseado em 2 critérios aplicados a cada gene:
-    1. Se o gene possui um número inteiro maior que -1 ele equivale a um índice de um filme armazenado em uma lista
-    2. Se o valor do gene é -1 é tratado como uma divisão de dias
+
+ 1. Se o gene possui um número inteiro maior que -1 ele equivale a um índice de um filme armazenado em uma lista
+ 2. Se o valor do gene é -1 é tratado como uma divisão de dias
 
 Aplicando tais condições, cada cromossomo é convertido em uma lista de tuplas de filmes, que representa a configuração final dos filmes que devem ser assistidos a cada dia.
 
