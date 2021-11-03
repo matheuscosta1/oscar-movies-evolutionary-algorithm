@@ -7,7 +7,6 @@ Este trabalho implementa um Algoritmo Genético em cima de filmes que ganharam o
 - Matheus José da Costa &emsp;11711BCC008
 - Rafael Valentim Silva &emsp;&emsp;11711BCC010
 
-
 # Representação do Cromossomo
 
 O Cromossomo será representado como uma configuração da ordem em que os filmes deverão ser assistidos com um delimitador específico que determina a divisão entre os dias. Cada gene representa um índice que define qual o filme que deverá ser assistido. Um gene especial, representado por -1, um índice inválido, representa a quebra de dias. Abaixo é representado graficamente um cromossomo:
@@ -40,17 +39,38 @@ As restrições de duração máxima por dia (240 minutos) e quando o filme O Po
 
 ## Mutação
 
+### Deslocamento
+
+Essa foi a abordagem escolhida, e basicamente escolhemos algum filme e trocamos ele de lugar e ajustamos os índices do cromossomo.
+
 ## Recombinação
 
 # Estrutura do Algoritmo Genético
 
-# Implementação do operador Elitismo
+# Operador Elitismo
 
-Para a geração dos filhos os pais mais adaptados tinham maior probabilidade em serem escolhidos.
+Foi utilizado esse operador pois para a geração dos filhos os pais mais adaptados tinham maior probabilidade em serem escolhidos.
 
 # Experimentos
 
 ## Geração da população
 
-## Mutação
+### Random
 
+Primeiro foi criado uma função para gerar a população de maneira randômica, sem um padrão da separação de dias e o delimitador (-1).
+Notou-se que essa abordagem não era tão efetiva por conta da desordem. 
+
+### Com padrão
+
+Essa foi a abordagem escolhida para gerar a população porque ela coloca um delimitador (-1) nas posições ímpares do cromossomo, e nas posições pares os filmes.
+Dessa forma conseguimos ter um maior controle nas operações que fazemos dentre desse cromossomo, principalmente nas mutações.
+
+### Mutação Inversa
+
+O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na seguinte imagem:
+
+![img_2.png](images/img_2.png)
+
+Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um delimitador de lugar com algum filme, e isso fazia com que num mesmo dia tivesse mais que dois filmes assistidos.
+
+## Estatísticas
