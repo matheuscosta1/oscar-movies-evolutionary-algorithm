@@ -65,7 +65,7 @@ Notou-se que essa abordagem não era tão efetiva por conta da desordem.
 Essa foi a abordagem escolhida para gerar a população porque ela coloca um delimitador (-1) nas posições ímpares do cromossomo, e nas posições pares os filmes.
 Dessa forma conseguimos ter um maior controle nas operações que fazemos dentre desse cromossomo, principalmente nas mutações.
 
-### Mutação Inversa
+## Mutação Inversa
 
 O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na seguinte imagem:
 
