@@ -74,3 +74,12 @@ O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na se
 Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um delimitador de lugar com algum filme, e isso fazia com que num mesmo dia tivesse mais que dois filmes assistidos.
 
 ## Estatísticas
+
+Como estatística, o programa foi executado por 30 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
+
+  1. Tempo
+  2. Rating
+  3. Dias
+
+Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máximo e o Desvio Padrão em cima de cada uma dessas métricas. Como segue:
+
