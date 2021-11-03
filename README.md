@@ -69,7 +69,7 @@ Dessa forma conseguimos ter um maior controle nas operações que fazemos dentre
 
 O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na seguinte imagem:
 
-![img_3.png](images/img_2.png)
+![img_3.png](images/img_3.png)
 
 Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um delimitador de lugar com algum filme, e isso fazia com que num mesmo dia tivesse mais que dois filmes assistidos.
 
