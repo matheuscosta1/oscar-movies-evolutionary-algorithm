@@ -265,7 +265,7 @@ def replace_invalid(pop: List[Chromosome]):
         invalid_indexes = list(map(lambda a: a[0], list(filter(lambda a: a[1] == -1, list(enumerate(evals))))))
 
 
-execution_number = 30
+execution_number = 3
 
 if __name__ == '__main__':
     times = []
@@ -334,7 +334,7 @@ if __name__ == '__main__':
         best_chromosomes.append(n_bests[-1][0])
         number_of_days.append(len(groups))
         with open('results.json', 'w') as f:
-            json.dump({'time': times, 'best_chromossomes': best_chromossome, 'days': number_of_days}, f)
+            json.dump({'time': times, 'best_chromossomes': best_chromosomes, 'days': number_of_days}, f)
         print(f'End #{j+1}: {iteration_time}')
 
         print(tabulate(days, headers=['Dia', "Filmes", 'Duração', 'Duração Acumulada', 'Rating', 'Rating Acumulado'],
