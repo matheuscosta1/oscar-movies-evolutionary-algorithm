@@ -44,8 +44,12 @@ As restrições de duração máxima por dia (240 minutos) e quando o filme O Po
 Essa foi a abordagem escolhida, e basicamente escolhemos algum filme e trocamos ele de lugar e ajustamos os índices do cromossomo.
 
 ## Recombinação
+Para a geração das recombinações foi usada o operador de _Order Crossover_ (OX1). Para a seleção dos progenitores foi utilizado o método da roleta, onde a probabilidade de um cromossomo ser selecionado aumenta proporcionalmente de acordo com sua aptidão.
+### Order Crossover (OX1)
+Devido a natureza de ordenação do problema, foi usada um operador de recombinação que mantém a ordem e não gera repetições. O operador OX1 faz com que parte de um progenitor seja mapeada para uma porção do outro progenitor, preenchendo as posições remanescentes com os genes restantes de cada progenitor, omitindo o que já foram contemplados e garantindo a ordem.
 
 # Estrutura do Algoritmo Genético
+![Estrututra do Algoritmo Genético](images/estrutura.svg)
 
 # Operador Elitismo
 
@@ -73,6 +77,11 @@ O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na se
 
 Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um delimitador de lugar com algum filme, e isso fazia com que num mesmo dia tivesse mais que dois filmes assistidos.
 
+## Recombinação usando a técnica de 1 ponto
+Um teste utilizando o operador de recombinação de 1 ponto também foi aplicado no projeto. O funcionamento de tal operador se dá em torno de sortear uma posição dentro do tamanho do cromossomo e depois inverter as primeiras posições antes do número sorteado do primeiro progenitor com as mesmas posições do segundo progenitor.
+
+O uso do perador de recombinação de 1 ponto não foi eficiente, uma vez que causa repetição e viola o contexto gerado pelos genes.
+
 ## Estatísticas
 
 Como estatística, o programa foi executado por 15 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
@@ -83,8 +92,13 @@ Como estatística, o programa foi executado por 15 vezes seguidas, e coletados a
 
 Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máximo e o Desvio Padrão em cima de cada uma dessas métricas. Como segue:
 
-![img_4.png](images/img_4.png)
+![img_4.png](images/metrics.png)
 
 Observa-se que houve melhoras em cada iteração do algoritmo, e isso acontece por conta da forma como foi inicialmente gerada a população, pelas mutações e cross overs.
 
 Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 15 execuções, e seus respectivos resultados finais.
+
+
+# Referências
+- https://sites.icmc.usp.br/andre/research/genetic/
+- https://pessoal.dainf.ct.utfpr.edu.br/tacla/IA/016a-AlgGeneticos.pdf
