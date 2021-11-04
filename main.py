@@ -264,11 +264,11 @@ def replace_invalid(pop: List[Chromosome]):
         invalid_indexes = list(map(lambda a: a[0], list(filter(lambda a: a[1] == -1, list(enumerate(evals))))))
 
 
-execution_number = 30
+execution_number = 1
 
 if __name__ == '__main__':
     times = []
-    best_chromossome = []
+    best_chromosomes = []
     number_of_days = []
     for j in range(execution_number):
 
@@ -330,11 +330,11 @@ if __name__ == '__main__':
 
         iteration_time = time.time() - start_time
         times.append(iteration_time)
-        best_chromossome.append(n_bests[-1][0])
+        best_chromosomes.append(n_bests[-1][0])
         number_of_days.append(len(groups))
 
-    print(tabulate(days, headers=['Dia', "Filmes", 'Duração', 'Duração Acumulada', 'Rating', 'Rating Acumulado'],
-                   tablefmt="fancy_grid"))
+        print(tabulate(days, headers=['Dia', "Filmes", 'Duração', 'Duração Acumulada', 'Rating', 'Rating Acumulado'],
+                       tablefmt="fancy_grid"))
 
     data = [[
         'Métrica',
@@ -351,10 +351,10 @@ if __name__ == '__main__':
             round(np.std(times), 3)],
         [
             "Rating",
-            round(min(best_chromossome), 2),
-            round(np.average(best_chromossome), 2),
-            round(max(best_chromossome), 2),
-            round(np.std(best_chromossome), 2)
+            round(min(best_chromosomes), 2),
+            round(np.average(best_chromosomes), 2),
+            round(max(best_chromosomes), 2),
+            round(np.std(best_chromosomes), 2)
         ],
         [
             "Dias", min(number_of_days),

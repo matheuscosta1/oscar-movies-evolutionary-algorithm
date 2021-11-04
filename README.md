@@ -75,7 +75,7 @@ Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um d
 
 ## Estatísticas
 
-Como estatística, o programa foi executado por 30 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
+Como estatística, o programa foi executado por 15 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
 
   1. Tempo
   2. Rating
@@ -83,3 +83,8 @@ Como estatística, o programa foi executado por 30 vezes seguidas, e coletados a
 
 Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máximo e o Desvio Padrão em cima de cada uma dessas métricas. Como segue:
 
+![img_4.png](images/img_4.png)
+
+Observa-se que houve melhoras em cada iteração do algoritmo, e isso acontece por conta da forma como foi inicialmente gerada a população, pelas mutações e cross overs.
+
+Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 15 execuções, e seus respectivos resultados finais.
