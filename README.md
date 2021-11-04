@@ -84,7 +84,7 @@ O uso do perador de recombinação de 1 ponto não foi eficiente, uma vez que ca
 
 ## Estatísticas
 
-Como estatística, o programa foi executado por 15 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
+Como estatística, o programa foi executado por 30 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
 
   1. Tempo
   2. Rating
@@ -96,7 +96,7 @@ Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máxim
 
 Observa-se que houve melhoras em cada iteração do algoritmo, e isso acontece por conta da forma como foi inicialmente gerada a população, pelas mutações e cross overs.
 
-Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 15 execuções, e seus respectivos resultados finais.
+Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 30 execuções, e seus respectivos resultados finais.
 
 
 # Referências
