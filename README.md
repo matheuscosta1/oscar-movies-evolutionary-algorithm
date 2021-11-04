@@ -1,6 +1,11 @@
-# Função Objetivo
+# Descrição
 
-A função objetivo do Algoritmo Evolutivo é a soma da multiplicação dos ratings diários dos filmes assistidos  e deve ser maximizada. Ela deveria sim tratar soluções inválidas, como dias sem assistir nenhum filme, configurações em que a soma da duração dos filmes assistidos em um só dia ultrapassar 240 minutos e, particularmente, quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I, contudo essas verificações serão feitas previamente na decodificação do cromossomo.
+Este trabalho implementa um Algoritmo Genético em cima de filmes que ganharam o prêmio do Oscar. A ideia é assistir a todos os filmes na menor quantidade de dias possíveis, com algumas restrições, que são elas: não se pode assistir mais que 240 minutos por dia; e o filme Poderoso Chefão I deve ser assistido antes do Podersoso Chefão II.
+
+# Identificação
+
+- Matheus José da Costa &emsp;11711BCC008
+- Rafael Valentim Silva &emsp;&emsp;11711BCC010
 
 # Representação do Cromossomo
 
@@ -9,11 +14,16 @@ O Cromossomo será representado como uma configuração da ordem em que os filme
 
 Devido a representação escolhida para o cromossomo, seu tamanho será 185, considerando que a configuração máxima é dada por um único filme sendo assistido por dia, como são 93 filmes, a configuração seguiria o padrão [x, -1, x, -1, x, -1, ..., x] resultando em 93 genes representando filmes e 92 representando separadores. Essa representação também requer que o critério de avaliação seja  restringido por uma condição que, se dois índices inválidos aparecem em sequência, tal solução é inválida caso todos filmes não foram visitados, caso contrário é uma solução aceita.
 
+# Função Objetivo
+
+A função objetivo do Algoritmo Evolutivo é a soma da multiplicação dos ratings diários dos filmes assistidos  e deve ser maximizada. Ela deveria sim tratar soluções inválidas, como dias sem assistir nenhum filme, configurações em que a soma da duração dos filmes assistidos em um só dia ultrapassar 240 minutos e, particularmente, quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I, contudo essas verificações serão feitas previamente na decodificação do cromossomo.
+
 # Decodificação do Cromossomo
 
 Dada a representação descrita no tópico anterior, a decodificação do cromossomo é bem simples e baseado em 2 critérios aplicados a cada gene:
-    1. Se o gene possui um número inteiro maior que -1 ele equivale a um índice de um filme armazenado em uma lista
-    2. Se o valor do gene é -1 é tratado como uma divisão de dias
+
+ 1. Se o gene possui um número inteiro maior que -1 ele equivale a um índice de um filme armazenado em uma lista
+ 2. Se o valor do gene é -1 é tratado como uma divisão de dias
 
 Aplicando tais condições, cada cromossomo é convertido em uma lista de tuplas de filmes, que representa a configuração final dos filmes que devem ser assistidos a cada dia.
 
@@ -25,3 +35,56 @@ Existem cenários em que a representação esperada não é garantida, como no e
 
 As restrições de duração máxima por dia (240 minutos) e quando o filme O Poderoso Chefão II for visto antes de O Poderoso Chefão I também serão tratadas. A primeira não é tratável e a função objetivo não poderá ser aplicada, a segunda será tratada invertendo os dias em que os dois filmes aparecem, e, caso apareçam no mesmo dia, sua ordem de exibição será invertida.
 
+# Operadores de Recombinação e Mutação
+
+## Mutação
+
+### Deslocamento
+
+Essa foi a abordagem escolhida, e basicamente escolhemos algum filme e trocamos ele de lugar e ajustamos os índices do cromossomo.
+
+## Recombinação
+
+# Estrutura do Algoritmo Genético
+
+# Operador Elitismo
+
+Foi utilizado esse operador pois para a geração dos filhos os pais mais adaptados tinham maior probabilidade em serem escolhidos.
+
+# Experimentos
+
+## Geração da população
+
+### Random
+
+Primeiro foi criado uma função para gerar a população de maneira randômica, sem um padrão da separação de dias e o delimitador (-1).
+Notou-se que essa abordagem não era tão efetiva por conta da desordem. 
+
+### Com padrão
+
+Essa foi a abordagem escolhida para gerar a população porque ela coloca um delimitador (-1) nas posições ímpares do cromossomo, e nas posições pares os filmes.
+Dessa forma conseguimos ter um maior controle nas operações que fazemos dentre desse cromossomo, principalmente nas mutações.
+
+## Mutação Inversa
+
+O primeiro teste usando-se mutação foi com a Inversa, que pode ser vista na seguinte imagem:
+
+![img_3.png](images/img_3.png)
+
+Essa abordagem não foi eficiente pois havia muitos casos em que trocava-se um delimitador de lugar com algum filme, e isso fazia com que num mesmo dia tivesse mais que dois filmes assistidos.
+
+## Estatísticas
+
+Como estatística, o programa foi executado por 15 vezes seguidas, e coletados alguns dados para serem trabalhados, e são eles:
+
+  1. Tempo
+  2. Rating
+  3. Dias
+
+Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máximo e o Desvio Padrão em cima de cada uma dessas métricas. Como segue:
+
+![img_4.png](images/img_4.png)
+
+Observa-se que houve melhoras em cada iteração do algoritmo, e isso acontece por conta da forma como foi inicialmente gerada a população, pelas mutações e cross overs.
+
+Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 15 execuções, e seus respectivos resultados finais.
