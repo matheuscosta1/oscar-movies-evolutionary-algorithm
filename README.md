@@ -96,9 +96,6 @@ Com essas informações, foi calculado o valor Mínimo, a Média, o Valor Máxim
 
 Observa-se que houve melhoras em cada iteração do algoritmo, e isso acontece por conta da forma como foi inicialmente gerada a população, pelas mutações e cross overs.
 
-Caso queira observar com mais detalhes, há um arquivo localizado na pasta logs com as 30 execuções, e seus respectivos resultados finais.
-
-
 # Referências
 - https://sites.icmc.usp.br/andre/research/genetic/
 - https://pessoal.dainf.ct.utfpr.edu.br/tacla/IA/016a-AlgGeneticos.pdf
