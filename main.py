@@ -12,6 +12,7 @@ import random
 import time
 from functools import reduce
 from typing import List
+import json
 
 import numpy as np
 from tabulate import tabulate
@@ -264,14 +265,14 @@ def replace_invalid(pop: List[Chromosome]):
         invalid_indexes = list(map(lambda a: a[0], list(filter(lambda a: a[1] == -1, list(enumerate(evals))))))
 
 
-execution_number = 1
+execution_number = 30
 
 if __name__ == '__main__':
     times = []
     best_chromosomes = []
     number_of_days = []
     for j in range(execution_number):
-
+        print(f"Init #{j+1}")
         start_time = time.time()
 
         MAX_EPOCHS = 10000  # 10000  # @param {type: "number"}
@@ -332,6 +333,9 @@ if __name__ == '__main__':
         times.append(iteration_time)
         best_chromosomes.append(n_bests[-1][0])
         number_of_days.append(len(groups))
+        with open('results.json', 'w') as f:
+            json.dump({'time': times, 'best_chromossomes': best_chromossome, 'days': number_of_days}, f)
+        print(f'End #{j+1}: {iteration_time}')
 
         print(tabulate(days, headers=['Dia', "Filmes", 'Duração', 'Duração Acumulada', 'Rating', 'Rating Acumulado'],
                        tablefmt="fancy_grid"))
